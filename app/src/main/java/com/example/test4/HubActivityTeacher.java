@@ -4,5 +4,5 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class HubActivityTeacher extends AppCompatActivity {
 
-govno
+govnoаавыаав
 }
