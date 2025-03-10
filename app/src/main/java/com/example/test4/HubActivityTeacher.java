@@ -1,5 +1,7 @@
 package com.example.test4;
 
-public class HubActivityTeacher {
-govno
+import androidx.appcompat.app.AppCompatActivity;
+
+public class HubActivityTeacher extends AppCompatActivity {
+
 }

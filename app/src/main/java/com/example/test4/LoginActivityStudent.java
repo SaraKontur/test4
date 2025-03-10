@@ -14,4 +14,3 @@ public class LoginActivityStudent extends AppCompatActivity {
 
     }
 }
-

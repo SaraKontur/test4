@@ -1,6 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
 }
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 
 android {
     namespace = "com.example.test4"
