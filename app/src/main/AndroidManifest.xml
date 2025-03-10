@@ -25,6 +25,8 @@
         <activity android:name=".LoginActivityStudent"/>
         <activity android:name=".LoginActivityTeacher"/>
         <activity android:name=".HubActivityTeacher"/>
+        <activity android:name=".HubActivityStudent"/>
+        <activity android:name=".CourseDetailActivity"/>
 
     </application>
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvCourseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название курса"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/tvCourseDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCourseTitle"
+        android:layout_marginTop="16dp"
+        android:text="Краткое описание курса. Этот курс охватывает основные концепции программирования на Java, включая объектно-ориентированное программирование, структуры данных и алгоритмы. Вы научитесь создавать приложения и решать реальные задачи."
+        android:textSize="16sp"
+        android:textColor="#333" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCourseDescription"
+        android:layout_marginTop="24dp"
+        android:text="Назад"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
