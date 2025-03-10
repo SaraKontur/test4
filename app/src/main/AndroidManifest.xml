@@ -29,6 +29,9 @@
         <activity android:name=".TakeTestActivity"/>
         <activity android:name=".CreatedTestActivity"/>
         <activity android:name=".CreateTestActivity"/>
+        <activity android:name=".HubActivityStudent"/>
+        <activity android:name=".CourseDetailActivity"/>
+
 
     </application>
 
