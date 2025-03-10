@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_hub_teacher"
+        android:icon="@drawable/ic_main"
+        android:title="Главная" />
+    <item
+        android:id="@+id/nav_created_tests"
+        android:icon="@drawable/ic_tests_list"
+        android:title="Мои тесты" />
+    <item
+        android:id="@+id/nav_create_test"
+        android:icon="@drawable/ic_create_test"
+    android:title="Создать тест" />
+</menu>
