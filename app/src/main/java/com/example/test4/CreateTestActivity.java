@@ -60,8 +60,6 @@ public class CreateTestActivity extends AppCompatActivity {
         });
 
 
-
-
         testTitleEditText = findViewById(R.id.testTitle);
 
         // Вопросы
