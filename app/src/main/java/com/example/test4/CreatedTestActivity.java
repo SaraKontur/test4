@@ -15,8 +15,9 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.Toast;
 
-public class CreatedTestActivity extends AppCompatActivity {
+public class CreatedTestActivity extends AppCompatActivity implements TestAdapter.OnTestClickListener {
     private RecyclerView recyclerView;
     private TestAdapter testAdapter;
     private List<Test> testList = new ArrayList<>();
@@ -33,7 +34,7 @@ public class CreatedTestActivity extends AppCompatActivity {
         loadTests();
 
         // Инициализируем адаптер после загрузки данных
-        testAdapter = new TestAdapter(testList);
+        testAdapter = new TestAdapter(testList, this);
         recyclerView.setAdapter(testAdapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -41,17 +42,14 @@ public class CreatedTestActivity extends AppCompatActivity {
         // Устанавливаем обработчик нажатий
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.nav_hub_teacher) {
-                // Переход на HubActivityTeacher
                 startActivity(new Intent(CreatedTestActivity.this, HubActivityTeacher.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (item.getItemId() == R.id.nav_create_test) {
-                // Переход на CreateTestActivity
                 startActivity(new Intent(CreatedTestActivity.this, CreateTestActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (item.getItemId() == R.id.nav_created_tests) {
-                // Уже находимся на этой вкладке
                 return true;
             }
             return false;
@@ -73,5 +71,16 @@ public class CreatedTestActivity extends AppCompatActivity {
         if (testAdapter != null) {
             testAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onTestClick(int position) {
+        // Получаем выбранный тест
+        Test selectedTest = testList.get(position);
+
+        // Переход на активность для прохождения теста
+        Intent intent = new Intent(this, TakeTestActivity.class);
+        intent.putExtra("test", selectedTest);
+        startActivity(intent);
     }
 }

@@ -10,24 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Название теста"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/questionsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/questionsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/submitTestButton"
+        android:id="@+id/finishTestButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Отправить тест"
-        android:onClick="submitTest" />
+        android:text="Завершить тест"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

@@ -2,7 +2,14 @@ package com.example.test4;
 
 import java.util.List;
 
-public class Test {
+import java.io.Serializable;
+import java.util.List;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.UUID;
+
+public class Test implements Serializable {
     private String id;
     private String title;
     private List<Question> questions;

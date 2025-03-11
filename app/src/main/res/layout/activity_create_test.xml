@@ -1,34 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_above="@id/bottom_navigation">
 
-        <EditText
-            android:id="@+id/testTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Название теста" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/addQuestionButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Добавить вопрос" />
+            <EditText
+                android:id="@+id/testTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Название теста" />
 
-        <Button
-            android:id="@+id/saveTestButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Сохранить тест"
-            android:onClick="saveTest" />
-    </LinearLayout>
+            <!-- Вопрос 1 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вопрос 1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/question1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Текст вопроса" />
+
+            <EditText
+                android:id="@+id/option1_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 1" />
+
+            <EditText
+                android:id="@+id/option1_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 2" />
+
+            <EditText
+                android:id="@+id/option1_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 3" />
+
+            <EditText
+                android:id="@+id/option1_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 4" />
+
+            <CheckBox
+                android:id="@+id/correctOption1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 1" />
+
+            <CheckBox
+                android:id="@+id/correctOption1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 2" />
+
+            <CheckBox
+                android:id="@+id/correctOption1_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 3" />
+
+            <CheckBox
+                android:id="@+id/correctOption1_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 4" />
+
+            <!-- Вопрос 2 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вопрос 2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/question2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Текст вопроса" />
+
+            <EditText
+                android:id="@+id/option2_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 1" />
+
+            <EditText
+                android:id="@+id/option2_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 2" />
+
+            <EditText
+                android:id="@+id/option2_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 3" />
+
+            <EditText
+                android:id="@+id/option2_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 4" />
+
+            <CheckBox
+                android:id="@+id/correctOption2_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 1" />
+
+            <CheckBox
+                android:id="@+id/correctOption2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 2" />
+
+            <CheckBox
+                android:id="@+id/correctOption2_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 3" />
+
+            <CheckBox
+                android:id="@+id/correctOption2_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 4" />
+
+            <!-- Вопрос 3 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вопрос 3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/question3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Текст вопроса" />
+
+            <EditText
+                android:id="@+id/option3_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 1" />
+
+            <EditText
+                android:id="@+id/option3_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 2" />
+
+            <EditText
+                android:id="@+id/option3_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 3" />
+
+            <EditText
+                android:id="@+id/option3_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 4" />
+
+            <CheckBox
+                android:id="@+id/correctOption3_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 1" />
+
+            <CheckBox
+                android:id="@+id/correctOption3_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 2" />
+
+            <CheckBox
+                android:id="@+id/correctOption3_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 3" />
+
+            <CheckBox
+                android:id="@+id/correctOption3_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 4" />
+
+            <!-- Вопрос 4 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вопрос 4"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/question4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Текст вопроса" />
+
+            <EditText
+                android:id="@+id/option4_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 1" />
+
+            <EditText
+                android:id="@+id/option4_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 2" />
+
+            <EditText
+                android:id="@+id/option4_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 3" />
+
+            <EditText
+                android:id="@+id/option4_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 4" />
+
+            <CheckBox
+                android:id="@+id/correctOption4_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 1" />
+
+            <CheckBox
+                android:id="@+id/correctOption4_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 2" />
+
+            <CheckBox
+                android:id="@+id/correctOption4_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 3" />
+
+            <CheckBox
+                android:id="@+id/correctOption4_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 4" />
+
+            <!-- Вопрос 5 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вопрос 5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/question5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Текст вопроса" />
+
+            <EditText
+                android:id="@+id/option5_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 1" />
+
+            <EditText
+                android:id="@+id/option5_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 2" />
+
+            <EditText
+                android:id="@+id/option5_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 3" />
+
+            <EditText
+                android:id="@+id/option5_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Вариант ответа 4" />
+
+            <CheckBox
+                android:id="@+id/correctOption5_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 1" />
+
+            <CheckBox
+                android:id="@+id/correctOption5_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 2" />
+
+            <CheckBox
+                android:id="@+id/correctOption5_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 3" />
+
+            <CheckBox
+                android:id="@+id/correctOption5_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Правильный ответ 4" />
+
+            <Button
+                android:id="@+id/btn_save_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сохранить тест"
+                android:textColor="@color/white"
+                android:layout_above="@id/bottom_navigation"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -36,4 +353,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_teacher_navigation" />
+
 </RelativeLayout>

@@ -1,48 +1,71 @@
 package com.example.test4;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TakeTestActivity extends AppCompatActivity {
     private Test test;
-    private List<Answer> answers = new ArrayList<>();
+    private RecyclerView questionsRecyclerView;
+    private QuestionAdapter questionAdapter;
+    private Button finishTestButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_test);
 
+        // Получаем тест из Intent
         test = (Test) getIntent().getSerializableExtra("test");
 
-        TextView testTitle = findViewById(R.id.testTitle);
-        testTitle.setText(test.getTitle());
+        // Отображаем название теста
+        TextView testTitleTextView = findViewById(R.id.testTitle);
+        testTitleTextView.setText(test.getTitle());
 
-        LinearLayout questionsContainer = findViewById(R.id.questionsContainer);
-        for (Question question : test.getQuestions()) {
-            TextView questionText = new TextView(this);
-            questionText.setText(question.getText());
-            questionsContainer.addView(questionText);
+        // Настройка RecyclerView для вопросов
+        questionsRecyclerView = findViewById(R.id.questionsRecyclerView);
+        questionsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        questionAdapter = new QuestionAdapter(test.getQuestions());
+        questionsRecyclerView.setAdapter(questionAdapter);
 
-            RadioGroup radioGroup = new RadioGroup(this);
-            for (String option : question.getOptions()) {
-                RadioButton radioButton = new RadioButton(this);
-                radioButton.setText(option);
-                radioGroup.addView(radioButton);
-            }
-            questionsContainer.addView(radioGroup);
-        }
+        // Кнопка завершения теста
+        finishTestButton = findViewById(R.id.finishTestButton);
+        finishTestButton.setOnClickListener(v -> finishTest());
     }
 
-    public void submitTest(View view) {
-        // Обработка ответов и сохранение результатов
+    private void finishTest() {
+        int correctAnswers = 0;
+
+        // Проверяем каждый вопрос
+        for (int i = 0; i < test.getQuestions().size(); i++) {
+            Question question = test.getQuestions().get(i);
+            RecyclerView.ViewHolder holder = questionsRecyclerView.findViewHolderForAdapterPosition(i);
+
+            if (holder instanceof QuestionAdapter.QuestionViewHolder) {
+                QuestionAdapter.QuestionViewHolder questionViewHolder = (QuestionAdapter.QuestionViewHolder) holder;
+                int selectedId = questionViewHolder.optionsRadioGroup.getCheckedRadioButtonId();
+
+                if (selectedId != -1) {
+                    RadioButton selectedRadioButton = questionViewHolder.itemView.findViewById(selectedId);
+                    String selectedAnswer = selectedRadioButton.getText().toString();
+
+                    if (selectedAnswer.equals(question.getCorrectAnswer())) {
+                        correctAnswers++;
+                    }
+                }
+            }
+        }
+
+        // Показываем результат
+        Toast.makeText(this, "Правильных ответов: " + correctAnswers + " из " + test.getQuestions().size(), Toast.LENGTH_LONG).show();
     }
 }
